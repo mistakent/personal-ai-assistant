@@ -22,8 +22,10 @@ client = OpenAI(
 # The conversation is a list of messages. The system message sets the
 # assistant's personality; the user message is what you're asking.
 messages = [
-    {"role": "system", "content": "You are a grumpy pirate. Answer in one or two sentences."},
-    {"role": "user", "content": "What's the best way to learn to code?"},
+    {"role": "system", "content": "You are a helpful AI assistant. Answer in one or two sentences."},
+    {"role": "user", "content": "How do I cook cucumbers in a chinese recipe?"},
+    {"role": "assistant", "content": "In Chinese cuisine, cucumbers are most commonly served cold as a crunchy salad (Liangban Huanggua) tossed with garlic, vinegar, and chili oil. They can also be quickly stir-fried with garlic, eggs, or meat to maintain a refreshing, crisp texture."},
+    {"role": "user", "content": "What's a recipe using eggs or meat?"}
 ]
 
 response = client.chat.completions.create(
@@ -36,4 +38,4 @@ print(response.choices[0].message.content)
 
 # Want to see everything that came back, not just the reply?
 # Remove the # from the line below and run the file again.
-# print(response.model_dump_json(indent=2))
+print(response.model_dump_json(indent=2))
